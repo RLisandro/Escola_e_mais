@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios - História Antiga</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <style>
+        .exercise-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .exercise-card {
+            background: var(--surface-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .question {
+            margin-bottom: 1.5rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .option:hover {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .option.selected {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .option.correct {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .option.wrong {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .feedback.wrong {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            color: var(--primary-color);
+        }
+
+        .image-container {
+            margin: 1rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="content-header">
+        <div class="header-container">
+            <a href="../historia_antiga.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao Material
+            </a>
+            <h1><i class="fas fa-tasks"></i> Exercícios - História Antiga</h1>
+            <p>Teste seus conhecimentos</p>
+        </div>
+    </header>
+
+    <main class="exercise-container">
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+
+        <div class="score-display">
+            Pontuação: <span id="score">0</span>/<span id="total">5</span>
+        </div>
+
+        <div id="exercise-content">
+            <!-- Os exercícios serão inseridos aqui via JavaScript -->
+        </div>
+    </main>
+
+    <script>
+        const exercises = [
+            {
+                question: "Qual civilização antiga desenvolveu a escrita cuneiforme?",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cuneiform_script2.jpg/640px-Cuneiform_script2.jpg",
+                options: [
+                    "Sumérios",
+                    "Egípcios",
+                    "Gregos",
+                    "Romanos"
+                ],
+                correct: 0,
+                feedback: "Os sumérios desenvolveram a escrita cuneiforme por volta de 3200 a.C. na Mesopotâmia."
+            },
+            {
+                question: "Qual foi a contribuição mais importante do Código de Hamurabi?",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Code_of_Hammurabi_replica.jpg/640px-Code_of_Hammurabi_replica.jpg",
+                options: [
+                    "Criação do alfabeto",
+                    "Estabelecimento de leis escritas",
+                    "Invenção da moeda",
+                    "Desenvolvimento da matemática"
+                ],
+                correct: 1,
+                feedback: "O Código de Hamurabi foi um dos primeiros conjuntos de leis escritas, estabelecendo regras claras para a sociedade."
+            }
+        ];
+
+        let currentExercise = 0;
+        let score = 0;
+
+        function displayExercise(index) {
+            const exercise = exercises[index];
+            const content = document.getElementById('exercise-content');
+            
+            content.innerHTML = `
+                <div class="exercise-card">
+                    <div class="question">
+                        <h2>Questão ${index + 1}</h2>
+                        <p>${exercise.question}</p>
+                        ${exercise.image ? `
+                            <div class="image-container">
+                                <img src="${exercise.image}" alt="Imagem da questão">
+                            </div>
+                        ` : ''}
+                    </div>
+                    <div class="options">
+                        ${exercise.options.map((option, i) => `
+                            <div class="option" onclick="selectOption(${i})">
+                                <span class="option-letter">${String.fromCharCode(65 + i)})</span>
+                                ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            `;
+
+            updateProgress();
+        }
+
+        function selectOption(optionIndex) {
+            const exercise = exercises[currentExercise];
+            const options = document.querySelectorAll('.option');
+            const feedback = document.querySelector('.feedback');
+            
+            options.forEach(option => option.classList.remove('selected', 'correct', 'wrong'));
+            options[optionIndex].classList.add('selected');
+
+            if (optionIndex === exercise.correct) {
+                options[optionIndex].classList.add('correct');
+                feedback.classList.add('correct');
+                feedback.classList.remove('wrong');
+                feedback.textContent = "Correto! " + exercise.feedback;
+                feedback.style.display = 'block';
+                score++;
+            } else {
+                options[optionIndex].classList.add('wrong');
+                options[exercise.correct].classList.add('correct');
+                feedback.classList.add('wrong');
+                feedback.classList.remove('correct');
+                feedback.textContent = "Incorreto. " + exercise.feedback;
+                feedback.style.display = 'block';
+            }
+
+            document.getElementById('score').textContent = score;
+            
+            setTimeout(() => {
+                if (currentExercise < exercises.length - 1) {
+                    currentExercise++;
+                    displayExercise(currentExercise);
+                }
+            }, 2000);
+        }
+
+        function updateProgress() {
+            const progress = document.querySelector('.progress');
+            const percentage = ((currentExercise + 1) / exercises.length) * 100;
+            progress.style.width = `${percentage}%`;
+        }
+
+        // Iniciar os exercícios
+        document.getElementById('total').textContent = exercises.length;
+        displayExercise(0);
+    </script>
+</body>
+</html>

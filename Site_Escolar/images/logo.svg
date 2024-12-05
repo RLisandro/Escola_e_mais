@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fundo do logo -->
+    <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3498db"/>
+            <stop offset="100%" style="stop-color:#2c3e50"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- Ícone do livro estilizado -->
+    <path d="M30 10 L45 5 L45 35 L30 40 L30 10" fill="url(#logoGradient)"/>
+    <path d="M30 10 L15 5 L15 35 L30 40 L30 10" fill="#3498db" opacity="0.9"/>
+    <path d="M30 10 L30 40 L30 40 L30 10" fill="#fff" stroke="#2c3e50" stroke-width="0.5"/>
+    
+    <!-- Círculo decorativo -->
+    <circle cx="30" cy="25" r="15" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+    
+    <!-- Texto do logo -->
+    <text x="60" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">Escola</text>
+    <text x="120" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3498db">é</text>
+    <text x="140" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2c3e50">Mais</text>
+    
+    <!-- Elemento decorativo -->
+    <path d="M120 30 L180 30" stroke="url(#logoGradient)" stroke-width="2" stroke-linecap="round"/>
+</svg>

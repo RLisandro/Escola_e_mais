@@ -1,0 +1,145 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family    : Arial, sans-serif;
+    background     : linear-gradient(135deg, #648edd, #6d94d7);
+    min-height     : 100vh;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.container {
+    width    : 100%;
+    max-width: 400px;
+    padding  : 20px;
+}
+
+.login-form {
+    background-color: #ffffff;
+    padding         : 30px;
+    border-radius   : 10px;
+    box-shadow      : 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color        : #1e3c72;
+    text-align   : center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display      : block;
+    margin-bottom: 5px;
+    color        : #1e3c72;
+    font-weight  : bold;
+}
+
+input {
+    width        : 100%;
+    padding      : 10px;
+    border       : 2px solid #e1e1e1;
+    border-radius: 5px;
+    font-size    : 16px;
+    transition   : border-color 0.3s;
+}
+
+input:focus {
+    outline     : none;
+    border-color: #1e3c72;
+}
+
+button {
+    width           : 100%;
+    padding         : 12px;
+    background-color: #1e3c72;
+    color           : white;
+    border          : none;
+    border-radius   : 5px;
+    font-size       : 16px;
+    cursor          : pointer;
+    transition      : background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2a5298;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color     : #666;
+}
+
+.signup-link a {
+    color          : #1e3c72;
+    text-decoration: none;
+    font-weight    : bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    padding      : 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align   : center;
+    opacity      : 0;
+    transition   : opacity 0.3s ease;
+}
+
+.message.success,
+.message.error {
+    opacity: 1;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color           : #155724;
+    border          : 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color           : #721c24;
+    border          : 1px solid #f5c6cb;
+}
+
+.loading {
+    position: relative;
+    opacity : 0.7;
+}
+
+.loading::after {
+    content : "...";
+    position: absolute;
+    right   : 10px;
+}
+
+.site-title {
+    color        : #1e3c72;
+    text-align   : center;
+    margin-bottom: 3.5rem;
+    font-size    : 2rem;
+    font-weight  : bold;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color           : white;
+    margin-top      : 20px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}

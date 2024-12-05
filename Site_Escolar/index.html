@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Portal Ciências Humanas - Seu guia de estudos em Ciências Humanas
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="quiz.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .btn-sair {
+        position: fixed;
+        top: 8px;
+        right: 8px;
+        background-color: #d63031;
+        color: #fff !important;
+        padding: 4px 8px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 11px;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+      }
+      .btn-sair i {
+        font-size: 10px;
+      }
+      .btn-sair:hover {
+        background-color: #b71c1c;
+      }
+
+      /* Estilos para navegação por teclado */
+      :focus-visible {
+        outline: 3px solid #4CAF50 !important;
+        outline-offset: 2px !important;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #4CAF50;
+        color: white;
+        padding: 8px;
+        z-index: 100;
+        transition: top 0.3s;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
+    <script src="text-to-speech.js" defer></script>
+    <script src="accessibility.js" defer></script>
+  </head>
+  <body>
+    <!-- Link de pular navegação -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <!-- Botão de Sair -->
+    <a href="login/logout.php" class="btn-sair" aria-label="Sair da conta">
+      <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+      Sair
+    </a>
+    
+    <header role="banner">
+      <div id="header">
+        <div id="logo">
+          <a href="/" class="logo-container" aria-label="Página inicial">
+            <img
+              src="logo.svg"
+              alt="Logo Educação é Mais"
+              width="100"
+              height="100"
+            />
+            <div class="logo-text">
+              <h1>Educação é Mais</h1>
+              <p>A EDUCAÇÃO TRANSFORMA</p>
+            </div>
+          </a>
+        </div>
+        <nav class="navbar" role="navigation" aria-label="Menu principal">
+          <ul class="nav-links">
+            <li>
+              <a href="#inicio" aria-label="Ir para seção Início">
+                <i class="fas fa-home" aria-hidden="true"></i> Início
+              </a>
+            </li>
+            <li>
+              <a href="#historia-card" aria-label="Ir para seção História">
+                <i class="fas fa-book" aria-hidden="true"></i> História
+              </a>
+            </li>
+            <li>
+              <a href="#filosofia-card" aria-label="Ir para seção Filosofia">
+                <i class="fas fa-lightbulb" aria-hidden="true"></i> Filosofia
+              </a>
+            </li>
+            <li>
+              <a href="#sociologia-card" aria-label="Ir para seção Sociologia">
+                <i class="fas fa-users" aria-hidden="true"></i> Sociologia
+              </a>
+            </li>
+            <li>
+              <a href="#geografia-card" aria-label="Ir para seção Geografia">
+                <i class="fas fa-globe" aria-hidden="true"></i> Geografia
+              </a>
+            </li>
+            <li>
+              <a href="feedback.html" aria-label="Enviar feedback sobre o site">
+                <i class="fas fa-comment" aria-hidden="true"></i> Feedback
+              </a>
+            </li>
+            <!-- Componente VLibras -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+<!-- Fim do Componente VLibras -->
+            <li>
+              <a
+                href="#quis"
+                class="quiz-nav-btn"
+                aria-label="Ir para seção Quis"
+              >
+                <i class="fas fa-question-circle" aria-hidden="true"></i> Quis
+              </a>
+            </li>
+          </ul>
+          <div class="user-controls">
+            <span class="user-welcome"
+              >Olá, <span class="user-name"></span>!</span
+            >
+            <button onclick="logout()" class="logout-btn">
+              <i class="fas fa-sign-out-alt"></i> Sair
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" role="main">
+      <div class="study-areas-container">
+        <!-- As áreas de estudo serão inseridas aqui dinamicamente -->
+      </div>
+      <section id="inicio" class="hero-section" aria-labelledby="hero-title">
+        <h1 id="hero-title">Educação que Transforma: Construindo seu Futuro</h1>
+        <p>
+          Desenvolvendo potenciais, formando líderes e inspirando o conhecimento
+        </p>
+      </section>
+
+      <section
+        id="categorias"
+        class="categories"
+        aria-labelledby="categorias-title"
+      >
+        <h2 id="categorias-title">Áreas de Estudo</h2>
+        <div class="cards-container">
+          <a href="conteudo/historia.html" class="card" id="historia-card">
+            <h3><i class="fas fa-book"></i> História</h3>
+            <p>Da Antiguidade ao Mundo Contemporâneo</p>
+            <ul>
+              <li>História Antiga</li>
+              <li>História Medieval</li>
+              <li>História Moderna</li>
+              <li>História Contemporânea</li>
+            </ul>
+            <div class="card-footer">
+              <span class="view-more"
+                >Ver conteúdo completo <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a href="conteudo/filosofia.html" class="card" id="filosofia-card">
+            <h3><i class="fas fa-lightbulb"></i> Filosofia</h3>
+            <p>Pensamento e Reflexão Crítica</p>
+            <ul>
+              <li>Filosofia Antiga</li>
+              <li>Filosofia Medieval</li>
+              <li>Filosofia Moderna</li>
+              <li>Filosofia Contemporânea</li>
+            </ul>
+            <div class="card-footer">
+              <span class="view-more"
+                >Ver conteúdo completo <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a href="conteudo/sociologia.html" class="card" id="sociologia-card">
+            <h3><i class="fas fa-users"></i> Sociologia</h3>
+            <p>Compreendendo a Sociedade</p>
+            <ul>
+              <li>Teorias Sociológicas</li>
+              <li>Movimentos Sociais</li>
+              <li>Cultura e Sociedade</li>
+              <li>Desigualdade Social</li>
+            </ul>
+            <div class="card-footer">
+              <span class="view-more"
+                >Ver conteúdo completo <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a href="conteudo/geografia.html" class="card" id="geografia-card">
+            <h3><i class="fas fa-globe"></i> Geografia</h3>
+            <p>Espaço e Sociedade</p>
+            <ul>
+              <li>Geografia Urbana</li>
+              <li>Geografia Política</li>
+              <li>Demografia</li>
+              <li>Globalização</li>
+            </ul>
+            <div class="card-footer">
+              <span class="view-more"
+                >Ver conteúdo completo <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="quis" class="quiz-section" aria-labelledby="quiz-title">
+        <h2 id="quiz-title">Quis - Ciências Humanas</h2>
+        <div class="category-buttons" role="tablist">
+          <button
+            class="category-select-btn active"
+            data-category="Geografia"
+            role="tab"
+            aria-selected="true"
+            aria-controls="quiz-geografia"
+          >
+            Geografia
+          </button>
+          <button class="category-select-btn" data-category="História">
+            História
+          </button>
+          <button class="category-select-btn" data-category="Filosofia">
+            Filosofia
+          </button>
+          <button class="category-select-btn" data-category="Sociologia">
+            Sociologia
+          </button>
+        </div>
+        <div class="quiz-container">
+          <p id="question"></p>
+          <div id="options"></div>
+          <p id="explanation"></p>
+          <button id="next-btn">Próxima Pergunta</button>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Sobre</h3>
+          <p>
+            Portal dedicado ao estudo das Ciências Humanas, desenvolvido para
+            tornar o aprendizado mais acessível e interativo.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão do Leitor de Tela -->
+    <div class="controles-leitor">
+      <div class="leitor-container">
+        <button id="btnLeitor" class="btn-leitor" aria-label="Ativar leitor de tela">
+          <i class="fas fa-volume-up"></i>
+        </button>
+        <div class="leitor-opcoes" style="display: none;">
+          <div class="leitor-botoes">
+            <button id="btnPlay" aria-label="Reproduzir"><i class="fas fa-play"></i></button>
+            <button id="btnPause" aria-label="Pausar"><i class="fas fa-pause"></i></button>
+            <button id="btnStop" aria-label="Parar"><i class="fas fa-stop"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Função para verificar o status do login
+      function checkLoginStatus() {
+        fetch("check_session.php")
+          .then((response) => response.json())
+          .then((data) => {
+            const userControls = document.querySelector(".user-controls");
+            if (data.loggedIn) {
+              userControls.style.display = "flex";
+              document.querySelector(".user-name").textContent =
+                data.userName || "Usuário";
+            } else {
+              userControls.style.display = "none";
+            }
+          })
+          .catch((error) => console.error("Erro:", error));
+      }
+
+      // Função de logout
+      function logout() {
+        fetch("login/logout.php")
+          .then(() => {
+            window.location.href = "login/login.php";
+          })
+          .catch((error) => console.error("Erro:", error));
+      }
+
+      // Verificar status do login quando a página carregar
+      document.addEventListener("DOMContentLoaded", checkLoginStatus);
+    </script>
+    <script src="script.js"></script>
+    <script src="study-areas.js"></script>
+    <script src="quiz.js"></script>
+    <script>
+      window.addEventListener("load", async () => {
+        try {
+          console.log("Iniciando leitor de tela...");
+
+          // Aguardar um momento para garantir que as vozes estejam disponíveis
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+
+          const leitor = new LeitorDeTela();
+          leitor.inicializar();
+
+          // Marcar elementos legíveis
+          const elementosLegiveis = document.querySelectorAll(
+            "p, h1, h2, h3, h4, h5, h6, li, .card"
+          );
+          elementosLegiveis.forEach((elemento) => {
+            elemento.setAttribute("data-readable", "true");
+            elemento.setAttribute("tabindex", "0");
+
+            // Adicionar evento de clique para teste
+            elemento.addEventListener("click", () => {
+              console.log("Elemento clicado:", elemento.textContent);
+            });
+          });
+        } catch (erro) {
+          console.error("Erro ao inicializar o leitor:", erro);
+        }
+      });
+    </script>
+  </body>
+</html>

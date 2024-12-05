@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Educação é Mais</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .feedback-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus,
+        .radio-option input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .submit-button:focus {
+            outline: 3px solid #4CAF50;
+            outline-offset: 2px;
+            background-color: #45a049;
+        }
+
+        .submit-button:active {
+            transform: translateY(1px);
+        }
+
+        .success-message {
+            display: none;
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .error-message {
+            display: none;
+            background-color: #f2dede;
+            color: #a94442;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .return-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .return-home:hover,
+        .return-home:focus {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .feedback-container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main id="main-content" class="feedback-container">
+        <!-- Botão de retorno à página inicial -->
+        <a href="index.html" class="return-home">
+            <i class="fas fa-arrow-left"></i>
+            Voltar para a página inicial
+        </a>
+
+        <h1>Sua Opinião é Importante</h1>
+        <p>Ajude-nos a melhorar nosso site para todos os usuários. Seu feedback é valioso!</p>
+
+        <form id="feedbackForm" class="feedback-form">
+            <!-- Experiência Geral -->
+            <div class="form-group">
+                <label>Como você avalia sua experiência geral com o site?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="exp-excelente" name="experiencia" value="excelente" required>
+                        <label for="exp-excelente">Excelente</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="exp-bom" name="experiencia" value="bom">
+                        <label for="exp-bom">Bom</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="exp-regular" name="experiencia" value="regular">
+                        <label for="exp-regular">Regular</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="exp-ruim" name="experiencia" value="ruim">
+                        <label for="exp-ruim">Ruim</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facilidade de Uso -->
+            <div class="form-group">
+                <label>O site é fácil de usar?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="uso-muito-facil" name="facilidade" value="muito-facil" required>
+                        <label for="uso-muito-facil">Muito fácil</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="uso-facil" name="facilidade" value="facil">
+                        <label for="uso-facil">Fácil</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="uso-regular" name="facilidade" value="regular">
+                        <label for="uso-regular">Regular</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="uso-dificil" name="facilidade" value="dificil">
+                        <label for="uso-dificil">Difícil</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo -->
+            <div class="form-group">
+                <label>O conteúdo é relevante para seus estudos?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="cont-muito" name="conteudo" value="muito" required>
+                        <label for="cont-muito">Muito relevante</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="cont-medio" name="conteudo" value="medio">
+                        <label for="cont-medio">Relevante</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="cont-pouco" name="conteudo" value="pouco">
+                        <label for="cont-pouco">Pouco relevante</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="cont-nada" name="conteudo" value="nada">
+                        <label for="cont-nada">Não relevante</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acessibilidade -->
+            <div class="form-group">
+                <label>Como você avalia os recursos de acessibilidade?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="acess-otimo" name="acessibilidade" value="otimo" required>
+                        <label for="acess-otimo">Ótimos</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="acess-bom" name="acessibilidade" value="bom">
+                        <label for="acess-bom">Bons</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="acess-regular" name="acessibilidade" value="regular">
+                        <label for="acess-regular">Regulares</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="acess-ruim" name="acessibilidade" value="ruim">
+                        <label for="acess-ruim">Ruins</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sugestões -->
+            <div class="form-group">
+                <label for="sugestoes">Sugestões de melhoria (opcional):</label>
+                <textarea id="sugestoes" name="sugestoes" placeholder="Digite suas sugestões aqui..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <i class="fas fa-paper-plane"></i>
+                Enviar Feedback
+            </button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            Obrigado pelo seu feedback! Sua opinião é muito importante para nós.
+        </div>
+        <div id="errorMessage" class="error-message">
+            Ocorreu um erro ao enviar o feedback. Por favor, tente novamente.
+        </div>
+    </main>
+
+    <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Desabilitar o botão durante o envio
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+            fetch('process_feedback.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    this.reset();
+                    
+                    // Esconder mensagem após 3 segundos
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    throw new Error(data.message || 'Erro ao enviar feedback');
+                }
+            })
+            .catch(error => {
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                errorMessage.textContent = error.message;
+                
+                // Esconder mensagem de erro após 5 segundos
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            })
+            .finally(() => {
+                // Reabilitar o botão
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Feedback';
+            });
+        });
+    </script>
+</body>
+</html>

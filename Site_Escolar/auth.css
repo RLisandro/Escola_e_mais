@@ -1,0 +1,217 @@
+.auth-container {
+    min-height     : 100vh;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    padding        : 20px;
+    position       : relative;
+    overflow       : hidden;
+}
+
+.auth-container::before {
+    content   : '';
+    position  : absolute;
+    top       : 0;
+    left      : 0;
+    right     : 0;
+    bottom    : 0;
+    background: url('pattern.png') repeat;
+    opacity   : 0.1;
+    z-index   : 1;
+}
+
+.auth-box {
+    background     : rgba(255, 255, 255, 0.95);
+    border-radius  : 30px;
+    padding        : 40px;
+    width          : 100%;
+    max-width      : 480px;
+    box-shadow     : 0 20px 50px rgba(0, 0, 0, 0.2);
+    position       : relative;
+    z-index        : 2;
+    backdrop-filter: blur(10px);
+}
+
+.auth-header {
+    text-align   : center;
+    margin-bottom: 30px;
+}
+
+.auth-logo {
+    width        : 80px;
+    height       : 80px;
+    margin-bottom: 20px;
+}
+
+.auth-header h1 {
+    font-size    : 32px;
+    color        : #1a2a6c;
+    margin-bottom: 10px;
+    font-weight  : 700;
+}
+
+.auth-header p {
+    color        : #666;
+    font-size    : 16px;
+    line-height  : 1.5;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    display      : flex;
+    align-items  : center;
+    background   : rgba(245, 245, 245, 0.9);
+    border-radius: 50px;
+    padding      : 5px 20px;
+    transition   : all 0.3s ease;
+    border       : 2px solid transparent;
+}
+
+.form-group label:focus-within {
+    border-color: #1a2a6c;
+    background  : white;
+    box-shadow  : 0 0 0 4px rgba(26, 42, 108, 0.1);
+}
+
+.form-group i {
+    color       : #666;
+    margin-right: 10px;
+}
+
+.form-group input {
+    width      : 100%;
+    padding    : 12px;
+    border     : none;
+    background : transparent;
+    font-size  : 16px;
+    color      : #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-group input:focus {
+    outline: none;
+}
+
+.auth-button {
+    background     : linear-gradient(135deg, #1a2a6c, #b21f1f);
+    color          : white;
+    padding        : 15px 30px;
+    border         : none;
+    border-radius  : 50px;
+    font-size      : 16px;
+    font-weight    : 500;
+    cursor         : pointer;
+    transition     : all 0.3s ease;
+    box-shadow     : 0 4px 15px rgba(0, 0, 0, 0.2);
+    position       : relative;
+    overflow       : hidden;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    gap            : 10px;
+}
+
+.auth-button:hover {
+    background: linear-gradient(135deg, #152456, #961a1a);
+    transform : translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.auth-button:active {
+    transform : translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.auth-button i {
+    font-size   : 18px;
+    margin-right: 8px;
+}
+
+.auth-links {
+    text-align: center;
+}
+
+.forgot-password {
+    color          : #666;
+    text-decoration: none;
+    font-size      : 14px;
+}
+
+.forgot-password:hover {
+    color: #1a2a6c;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-footer a {
+    color          : #1a2a6c;
+    text-decoration: none;
+    font-weight    : 500;
+    transition     : all 0.3s ease;
+}
+
+.auth-footer a:hover {
+    color          : #b21f1f;
+    text-decoration: none;
+}
+
+.captcha {
+    display        : flex;
+    justify-content: center;
+    margin         : 10px 0;
+}
+
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 30px 20px;
+        margin : 15px;
+    }
+
+    .auth-button {
+        padding  : 12px 20px;
+        font-size: 15px;
+    }
+}
+
+.nav-btn {
+    background : none;
+    border     : none;
+    color      : inherit;
+    font       : inherit;
+    cursor     : pointer;
+    padding    : 8px 15px;
+    display    : flex;
+    align-items: center;
+    gap        : 8px;
+}
+
+.nav-btn:hover {
+    color: #b21f1f;
+}
+
+.toggle-password {
+    color     : #666;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #1a2a6c;
+}
+
+.form-group label {
+    position: relative;
+}
